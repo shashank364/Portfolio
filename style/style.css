@@ -1,0 +1,1364 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+a,
+a:link,
+a:visited {
+  color: inherit;
+}
+
+:root {
+  --txt: 17px;
+  --txt-h: 25px;
+  --medium-h: 30px;
+  --large-h: 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.noscroll {
+  min-height: 100vh;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*----------- headline of each container------------------- */
+.containerHead h3 {
+  font-size: var(--large-h);
+  margin-bottom: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-bottom: 2px solid rgb(236, 66, 117);
+  display: inline-block;
+  line-height: 1;
+}
+/* !----------- headline of each container------------------- */
+
+/* ____INDEX____ */
+/* 
+ -1. Global things (above index)
+  0. Loading Screen
+  1. header
+  2. website development
+  3. Main_banner
+    3-1. banner-pic
+    3-2. typing
+  4. About Me
+  5. About-Grid
+  6. My Skill And hobbies
+  7. Repo's-> btn
+  8. My Work
+  8. Contact Me
+  9. footer
+ 10. Button to top
+*/
+/* !_____INDEX_____ */
+
+/* ------0. Loading Screen------ */
+ .preloader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10000000;
+}
+.preloader.active {
+  transform: translateY(-100vh);
+  transition: ease-in-out 2s;
+  transition-delay: 1s;
+}
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #01070a;
+}
+.scene i {
+  position: absolute;
+  top: -250px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: stars linear infinite;
+}
+@keyframes stars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200vh);
+  }
+}
+.rocket {
+  position: relative;
+  animation: rocket 0.2s ease infinite;
+}
+@keyframes rocket {
+  0%,
+  100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+.rocket::before {
+  content: "";
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(#00d0ff, transparent);
+}
+.rocket::after {
+  content: "";
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(#00d0ff, transparent);
+  filter: blur(20px);
+} 
+
+.counter {
+  position: absolute;
+  top: 10px;
+  color: #ecf00f;
+  width: 100%;
+  font-size: 5rem;
+  font-weight: 500;
+}
+.counter::before {
+  content: "Loading...";
+  font-size: 5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #fd093e, #fd0946, #ecf00f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.counter::after {
+  content: "%";
+  font-size: 4rem;
+}
+
+.hide {
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+/* !------0. Loading Screen------ */
+
+/* -----1. header------- */
+.mainheader {
+  position: relative;
+  background-color: transparent;
+  margin: 0px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+}
+
+nav {
+  /* position: sticky;
+  top: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-weight: 500;
+  transition: 0.6s;
+  overflow: hidden;
+}
+.nav-links a span {
+  display: block;
+  background: #000;
+  transition: 0.2s;
+}
+.nav-links a span:nth-child(1),
+.nav-links a span:nth-child(3) {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+}
+.nav-links a span:nth-child(2),
+.nav-links a span:nth-child(4) {
+  position: absolute;
+  height: 100%;
+  width: 2px;
+}
+.nav-links a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+}
+.nav-links a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+}
+.nav-links a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+}
+.nav-links a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+}
+.nav-links a.active span:nth-child(1),
+.nav-links a:hover span:nth-child(1) {
+  /* top: 0; */
+  left: 0;
+  transition-delay: 0s;
+}
+.nav-links a.active span:nth-child(2),
+.nav-links a:hover span:nth-child(2) {
+  top: 0;
+  /* right: 0; */
+  transition-delay: 0.2s;
+}
+.nav-links a.active span:nth-child(3),
+.nav-links a:hover span:nth-child(3) {
+  /* bottom: 0; */
+  right: 0;
+  transition-delay: 0.4s;
+}
+.nav-links a.active span:nth-child(4),
+.nav-links a:hover span:nth-child(4) {
+  bottom: 0;
+  /* left: 0; */
+  transition-delay: 0.6s;
+}
+/* a.active,
+.nav-links a:hover {
+  color: #fc5c65;
+  transition: 0.5s;
+} */
+.burger {
+  display: none;
+}
+
+.centerLine {
+  width: 40px;
+  height: 4px;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+.centerLine::before,
+.centerLine::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+.centerLine::before {
+  transform: translateY(-12px);
+}
+.centerLine::after {
+  transform: translateY(12px);
+}
+
+/* Animation */
+.burger.open .centerLine {
+  /* for right */
+  transform: translateX(50px);
+  /* for left */
+  /* transform: translateX(-50px); */
+  background: transparent;
+  box-shadow: none;
+}
+.burger.open .centerLine::before {
+  /* for right */
+  transform: rotate(-45deg) translate(-35px, -35px);
+  /* for left */
+  /* transform: rotate(45deg) translate(35px, -35px); */
+}
+.burger.open .centerLine::after {
+  /* for right */
+  transform: rotate(45deg) translate(-35px, 35px);
+  /* for left */
+  /* transform: rotate(-45deg) translate(35px, 35px); */
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* !-----1. header------- */
+
+/* -----body----- */
+/* main index page */
+/* -----2. website development---- */
+#dev {
+  background: #000;
+  /* height: 50vh; */
+}
+#dev p {
+  padding: 20px;
+  font-size: 2.5em;
+  color: rgb(15, 177, 15);
+  opacity: 0;
+  animation: devlop 1s infinite;
+}
+@keyframes devlop {
+  100% {
+    opacity: 1;
+  }
+}
+.btn{
+  padding:8px;
+  border:3px solid  rgba(255, 0, 0, 0.753);
+  background-color: rgba(255, 0, 0, 0.753);
+  color: #fff;
+  font-size: 20px;
+}
+
+.content a{
+  color:#fff;
+}
+.btn:hover{
+  padding:8px;
+  border:3px solid  rgba(255, 0, 0, 0.753);
+  background-color: #fff;
+  color:  rgba(255, 0, 0, 0.753);
+  font-size: 20px;
+}
+/* !-----2. website development---- */
+
+/* -----3. Main_banner----- */
+
+/* -----3-1. banner-pic----- */
+.banner-view {
+  background: url(../image/banner\ .jpg) no-repeat right;
+  background-position-x: right;
+  background-position-y: center;
+  background-size: cover;
+  background-color: #fff;
+  display: grid;
+  align-items: center;
+  min-height: 530px;
+}
+/* !-----3-1. banner-pic----- */
+
+/* -----3-2. typing----- */
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  margin-right: auto;
+  color:#fff;
+}
+.banner h1,
+small {
+  line-height: 70px;
+  font-size: 55px;
+  font-family: "Poppins", serif;
+}
+.banner h1 {
+  font-weight: 600;
+}
+.banner h1 small {
+  font-weight: 400;
+}
+.banner h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+.banner .txt {
+  border-right: 0.2rem solid #000;
+  animation: cur 0.7s infinite;
+}
+@keyframes cur {
+  0% {
+    border-right-color: #000;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+/* !-----3-2. typing----- */
+/* !-----3. Main_banner----- */
+
+/* -----4. About Me----- */
+#about {
+  padding-top: 1rem !important;
+  padding: 0 15px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card .imgbx {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  /* padding-left: 15px; */
+}
+.card .imgbx img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}
+.card .content {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  /* padding-right: 15px; */
+  padding-left: 15px;
+}
+.card .content h2 {
+  font-size: var(--medium-h);
+  /* line-height: 52px; */
+  font-weight: 500;
+}
+.card .content p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--txt);
+  line-height: 28px;
+  margin: 30px 0;
+}
+/* !-----4. About Me----- */
+
+/* ------5. About-Grid----- */
+.about-grid {
+  background-size: cover;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.58)
+    ),
+    url(../image/slide.jpg);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 3rem 0 !important;
+}
+.container-about {
+  max-width: 960px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.bottomgrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 -15px;
+}
+.bottomfield {
+  margin-top: 0 !important;
+  flex: 0 0 25%; /* ratio */
+  max-width: 25%; /*ratio*/
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+}
+.bottomfield h4 {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: #fff;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.bottomfield p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--txt);
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.72);
+}
+/* !-----5. About-Grid----- */
+
+/* --------6. My Skill And hobbies----- */
+.MySkillHobbies {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.MySkill,
+.MyHobbies {
+  /* order: 2; */
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+.MySkill h4,
+.MyHobbies h4 {
+  font-size: var(--medium-h);
+  line-height: 35px;
+  color: #232527;
+  padding-bottom: 0em;
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+h6 {
+  font-size: var(--txt);
+  color: #777;
+  margin-bottom: 0.6em;
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h6 span {
+  float: right;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h6:nth-of-type(1) span {
+  color: #29a143;
+}
+h6:nth-of-type(2) span {
+  color: #e25c0e;
+}
+h6:nth-of-type(3) span {
+  color: #a19f29;
+}
+h6:nth-of-type(4) span {
+  color: #a12987;
+}
+h6:nth-of-type(5) span {
+  color: #c41616;
+}
+h6:nth-of-type(6) span {
+  color: #29a19c;
+}
+
+.progress {
+  height: 10px;
+  margin-bottom: 2.5em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 0.75rem;
+  display: flex;
+}
+.progress .bar {
+  background-color: #29a19c;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  border-radius: 5px;
+}
+
+.progress:nth-of-type(1) .bar {
+  background-color: #29a143;
+}
+.progress:nth-of-type(2) .bar {
+  background-color: #e25c0e;
+}
+.progress:nth-of-type(3) .bar {
+  background-color: #a19f29;
+}
+.progress:nth-of-type(4) .bar {
+  background-color: #a12987;
+}
+.progress:nth-of-type(5) .bar {
+  background-color: #c41616;
+}
+/* .progress:nth-of-type(6) .bar {
+  background-color: #11ca39;
+} */
+
+.MyHobbies .box {
+  padding: 0 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto -15px;
+}
+.hobbies-box {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.hobbies-box span {
+  font-size: 20px;
+  width: 65px;
+  height: 65px;
+  line-height: 65px;
+  color: #f7f6a3;
+  border-radius: 50%;
+  margin-bottom: 0.5em;
+  background-color: #000000 !important;
+}
+
+.hobbies-box:nth-child(1) span {
+  color: #ecf015;
+}
+.hobbies-box:nth-child(2) span {
+  color: #15f039;
+}
+.hobbies-box:nth-child(3) span {
+  color: #15f0cb;
+}
+.hobbies-box:nth-child(4) span {
+  color: #f09815;
+}
+.hobbies-box:nth-child(5) span {
+  color: #fbff00;
+}
+.hobbies-box:nth-child(6) span {
+  color: #7415f0;
+}
+.hobbies-box:nth-child(7) span {
+  color: #e7589b;
+}
+.hobbies-box:nth-child(8) span {
+  color: #98d87f;
+}
+
+.hobbies-box h5 {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 0.5rem;
+  color: #232527;
+  font-weight: 600;
+}
+
+/* !----6. My Skill And hobbies----- */
+
+/* ------7. Repo's-> btn------- */
+.page-content {
+  min-height: 400px;
+  background-color: #050801;
+}
+.ptext a {
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  margin: 40px 0;
+  font-size: 24px;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.ptext a:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+}
+.ptext a span {
+  position: absolute;
+  display: block;
+}
+
+.ptext a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.ptext a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  /* animation-delay: 0.25s; */
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.ptext a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  /* animation-delay: 0.5s; */
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.ptext a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  /* animation-delay: 0.75s; */
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+/* !------7. Repo's-> btn------- */
+
+/* -------8. My Work------- */
+
+/* Responsive columns */
+
+/* Style the counter cards */
+
+#MyWork {
+  padding-top: 1rem !important;
+  background-color: #8082c969;
+}
+.WorkMain {
+  width: 100%;
+  height: 100%;
+}
+#MyWork h3 {
+  margin: 0 15px;
+  margin-bottom: 10px;
+}
+/* .WorkMain h2 {
+  text-align: center;
+  margin: 20px auto;
+} */
+
+
+/* -------shiny-------- */
+
+/* !-------8. My Work------- */
+.WorkSection .card{
+  margin-left: 1px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Texturina', serif;
+}
+.WorkSection #contact {
+  padding-top: 1rem !important;
+  background: #c8bd84;
+}
+.WorkSection #contact p.shadow {
+  font-size: var(--txt-h);
+  text-align: left;
+  text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.72);
+}
+.WorkSection .container-contact {
+  padding: auto;
+  overflow: hidden;  
+}
+
+ .card .def {
+  color:#060608;
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  line-height: 35px;  
+  font-family: 'Texturina', serif;
+
+}
+.WorkSection .im{
+  overflow: hidden;
+  width: 300px;
+  height: 250px;
+}
+.card .im img{
+  transition: transform .5s ease;  
+}
+.card:hover .im img{
+  transform: scale(1.5);
+}
+/* .WorkSection img:hover .overlay {
+  opacity: 1;
+} */
+.WorkSection .container-contact .card {
+  width: 350px;
+  height: 400px;
+  margin: 30px;
+  padding-top:25px ;
+  background:  linear-gradient(to right, #59b5c194,#2657c191);
+  font-size: 35px;
+  display: flex;
+  justify-content: space-around;
+  text-transform: capitalize;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
+.WorkSection .container-contact p {
+  font-size: var(--txt-h);
+}
+.WorkSection .container-contact .card:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.WorkSection #g {
+  color: green;
+}
+.WorkSection #bl {
+  color: black;
+}
+.WorkSection #b {
+  color: rgb(56, 85, 165);
+}
+.WorkSection #lb {
+  color: rgb(28, 191, 197);
+}
+.WorkSection #p {
+  color: rgb(233, 76, 128);
+}
+.WorkSection #r {
+  color: rgb(255, 68, 68);
+}
+/* -----9. Contact Me----- */
+#contact {
+  padding-top: 1rem !important;
+  padding: 0 15px;
+  background: #c8bd84;
+}
+#contact p.shadow {
+  font-size: var(--txt-h);
+  text-align: center;
+  text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.72);
+}
+.container-contact {
+  padding: auto;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.container-contact a {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  margin: 30px;
+  background: rgb(197, 197, 152);
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: capitalize;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s;
+}
+.container-contact p {
+  font-size: var(--txt-h);
+}
+.container-contact a:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+#g {
+  color: green;
+}
+#bl {
+  color: black;
+}
+#b {
+  color: rgb(56, 85, 165);
+}
+#lb {
+  color: rgb(28, 191, 197);
+}
+#p {
+  color: rgb(233, 76, 128);
+}
+#r {
+  color: rgb(255, 68, 68);
+}
+/* !-----9. Contact Me----- */
+
+/* ----10. footer---- */
+footer {
+  background: #fff;
+  padding: 30px 0;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.logo {
+  width: 180px;
+}
+.imglogo {
+  text-align: center;
+}
+
+.social-media {
+  margin: 20px 0;
+}
+
+.social-media a {
+  color: #001a21;
+  margin: 0 15px;
+  font-size: 22px;
+  text-decoration: none;
+  transition: 0.3s linear;
+}
+
+.social-media a:hover {
+  color: #fc5c65;
+}
+
+.right-col {
+  flex-wrap: wrap;
+}
+/* !----10. footer---- */
+
+/* -----11. Button to top------ */
+#movetop {
+  position: fixed;
+  display: none;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(234, 238, 10);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 25px;
+  opacity: 0.7;
+  box-shadow: 0 0 10px #000;
+}
+#movetop:active {
+  opacity: 1;
+}
+/* !-----11. Button to top------ */
+
+@media (max-width: 991px) {
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -460px 0;
+  }
+  /* !------ 3-1. banner-pic--------- */
+}
+
+@media (max-width: 900px) {
+  /* -------8. My Work------- */
+  .button a {
+    margin: 20px 10px;
+    padding: 5px 10px;
+  }
+  /* !-------8. My Work------- */
+}
+
+@media (max-width: 858px) {
+  .logo {
+    width: 150px;
+  }
+
+  /* -----1. header------- */
+  body {
+    overflow-x: hidden;
+  }
+  .mainheader {
+    max-height: 10vh;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .nav-links {
+    /* display: none; */
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background: linear-gradient(#fff, #6cf3f3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    /* z-index: 1; */
+  }
+  .nav-links a {
+    padding: 10px;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    /* border: 3px solid #000; */
+  }
+  .burger.stickyToggel {
+    display: none;
+  }
+
+  /* this .nav-active sholud be after @media or last of page ? for me */
+  .nav-active {
+    transform: translateX(0);
+  }
+
+  /* !-----1. header------- */
+
+  /* ---------------2. website development----------- */
+  #dev p {
+    font-size: 1em;
+  }
+  /* !---------------2. website development----------- */
+
+  /* -----10. footer----- */
+  .footer-container {
+    max-width: 500px;
+  }
+  .right-col {
+    width: 100%;
+    font-size: 0.7em;
+  }
+  .left-col {
+    width: 100%;
+    text-align: center;
+  }
+  .social-media a {
+    margin: 0 10px;
+  }
+  /* !-----10. footer----- */
+
+  /* -------0. Loading Screen--------- */
+  .counter {
+    top: 50px;
+    font-size: 2em;
+  }
+  .counter::before {
+    position: absolute;
+    top: -35px;
+    font-size: 1em;
+  }
+  .counter::after {
+    font-size: 0.85em;
+  }
+  /* !-------0. Loading Screen--------- */
+
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -520px 0;
+  }
+  .banner {
+    padding: 0.5rem;
+  }
+  .banner h1,
+  small {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .banner h2 {
+    font-size: 22px;
+  }
+  /* !------ 3-1. banner-pic--------- */
+
+  /* -----4. About Me----- */
+  .card .imgbx {
+    flex: none;
+    max-width: 100%;
+    padding: 0;
+  }
+  .card .content {
+    flex: none;
+    max-width: 100%;
+    padding: 0;
+    margin: 3rem 0 !important;
+  }
+  /* !-----4. About Me----- */
+
+  /* -----5. About-Grid----- */
+  .bottomfield {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 3rem !important;
+  }
+  /* !-----5. About-Grid----- */
+
+  /* -----6. My Skill And hobbies----- */
+  .MySkill,
+  .MyHobbies {
+    flex: none;
+    max-width: 100%;
+  }
+  .MyHobbies {
+    margin: 0;
+  }
+  /* !-----6. My Skill And hobbies----- */
+}
+
+@media (max-width: 800px) {
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -630px 0;
+  }
+  /* !------ 3-1. banner-pic--------- */
+
+  /* -------8. My Work------- */
+  .WorkMain {
+    width: 100vw;
+    /* height: 640px; */
+  }
+  .toggle-button {
+    margin-bottom: 20px;
+  }
+  .toggle-button button {
+    margin: 10px;
+    padding: 5px 10px;
+  }
+  .appWork,
+  .webWork {
+    height: 85vh;
+  }
+  .appWork .appSS,
+  .webWork .webSS {
+    flex: none;
+    max-width: 100%;
+  }
+  .appWork .appContent,
+  .webWork .webContent {
+    flex: none;
+    max-width: 100%;
+  }
+  .appWork .appSS img {
+    max-width: 20%;
+  }
+  .webWork .webSS img {
+    max-width: 80%;
+    margin: 0;
+  }
+  .appWork .appContent h2,
+  .webWork .webContent h2 {
+    font-size: 25px;
+    margin: 10px;
+    text-align: center;
+  }
+  .appWork .appContent p,
+  .webWork .webContent p {
+    font-size: 15px;
+    text-align: center;
+    margin: 0 10px;
+    line-height: 20px;
+  }
+  .appContent .button,
+  .webContent .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* -------shiny-------- */
+  .shiny {
+    justify-content: center;
+  }
+  /* !-------shiny-------- */
+  .button {
+    margin-bottom: 10px !important;
+  }
+  .button a {
+    margin: 20px 10px;
+    padding: 5px 10px;
+  }
+
+  #next-btn,
+  #prev-btn {
+    padding: 20px 0;
+  }
+  #next-btn {
+    right: 10px;
+  }
+  #prev-btn {
+    left: 10px;
+  }
+  /* !-------8. My Work------- */
+}
+@media (max-width: 700px) {
+  /* -------8. My Work------- */
+  .appWork .appSS img {
+    max-width: 25%;
+  }
+  /* !-------8. My Work------- */
+}
+@media (max-width: 600px) {
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -450px 0;
+    min-height: 550px;
+  }
+  /* !------ 3-1. banner-pic--------- */
+
+  /* -------8. My Work------- */
+  .appWork .appSS img {
+    max-width: 28%;
+  }
+  .webWork .webSS img {
+    max-width: 95%;
+  }
+  /* !-------8. My Work------- */
+
+  /* -----9. Contact Me----- */
+  .container-contact a {
+    width: 155px;
+    height: 70px;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+  .container-contact p {
+    font-size: 20px;
+  }
+  #contact p.shadow {
+    font-size: 20px;
+    text-shadow: 1px 2px 13px rgba(0, 0, 0, 0.72);
+    margin-bottom: 20px !important;
+  }
+  /* !-----9. Contact Me----- */
+}
+@media (max-width: 569px) {
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -320px 0;
+    min-height: 420px;
+  }
+  /* !------ 3-1. banner-pic--------- */
+}
+
+@media (max-width: 450px) {
+  /* -------8. My Work------- */
+  .appWork .appSS img {
+    max-width: 45%;
+  }
+  .webWork .webSS img {
+    max-width: 95%;
+  }
+  /* !-------8. My Work------- */
+}
+@media (max-width: 400px) {
+  /* ------ 3-1. banner-pic--------- */
+  .banner-view {
+    background-position: -400px 0;
+  }
+  /* !------ 3-1. banner-pic--------- */
+
+  /* -----6. My Skill And hobbies----- */
+  .MyHobbies .box {
+    padding: 0;
+  }
+  /* !-----6. My Skill And hobbies----- */
+}
